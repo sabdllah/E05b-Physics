@@ -16,7 +16,7 @@ INITIAL_VELOCITY = 3
 FRICTION = 0.9
 SCREEN_TITLE = "Gravity and Bouncing Exercise"
 
-GRAVITY = 0 #update this value
+GRAVITY = -0.9 #update this value
 
 
 class Ball():
@@ -31,29 +31,33 @@ class Ball():
     def draw(self):
         arcade.draw_circle_filled(self.x, self.y, self.radius, self.color)
     
-    def update(self):
+    def update(self, x, y, dx, dy):
         self.x += self.dx
         self.y += self.dy
         if self.x <= MARGIN:
             self.x = MARGIN
+            self.dx = dx 
             #bounce dx
 
             self.dx *= FRICTION
             self.dy *= FRICTION
         if self.x >= SCREEN_WIDTH - MARGIN:
             self.x = SCREEN_WIDTH - MARGIN
+            self.dx = dx 
             #bounce dx
 
             self.dx *= FRICTION
             self.dy *= FRICTION
         if self.y <= MARGIN:
             self.y = MARGIN
+            self.dy = dy
             #bounce dy
 
             self.dx *= FRICTION
             self.dy *= FRICTION
         if self.y >= SCREEN_HEIGHT - MARGIN:
             self.y = SCREEN_HEIGHT - MARGIN
+            self.dy = dy 
             #bounce dy
 
             self.dx *= FRICTION
