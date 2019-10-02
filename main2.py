@@ -36,28 +36,28 @@ class Ball():
         self.y += self.dy
         if self.x <= MARGIN:
             self.x = MARGIN
-            self.dx = dx 
+            self.dx = abs(self.dx) 
             #bounce dx
 
             self.dx *= FRICTION
             self.dy *= FRICTION
         if self.x >= SCREEN_WIDTH - MARGIN:
             self.x = SCREEN_WIDTH - MARGIN
-            self.dx = dx 
+            self.dx = abs(self.dx)*-1
             #bounce dx
 
             self.dx *= FRICTION
             self.dy *= FRICTION
         if self.y <= MARGIN:
             self.y = MARGIN
-            self.dy = dy
+            self.dy = abs(self.dy)
             #bounce dy
 
             self.dx *= FRICTION
             self.dy *= FRICTION
         if self.y >= SCREEN_HEIGHT - MARGIN:
             self.y = SCREEN_HEIGHT - MARGIN
-            self.dy = dy 
+            self.dy = abs(self.dy)*-1
             #bounce dy
 
             self.dx *= FRICTION
